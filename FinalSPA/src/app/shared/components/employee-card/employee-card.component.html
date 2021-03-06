@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let emp of employees ">
+        <a href="#"
+        [routerLink]="['/employee/Interactions/',emp.id]">
+        {{emp.name}}</a>
+       
+    </li>
+</ul>
