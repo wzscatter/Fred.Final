@@ -18,6 +18,7 @@ import { EmployeeCardComponent } from './shared/components/employee-card/employe
 import { EmpInteractionCardComponent } from './shared/components/emp-interaction-card/emp-interaction-card.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { EmpInteractionCardComponent } from './shared/components/emp-interaction
     HeaderComponent,
 
     InteractionComponent,
-    NotFoundComponent
+    NotFoundComponent,
 
     
   ],

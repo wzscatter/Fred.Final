@@ -10,7 +10,7 @@ export class EmployeeService {
 
   constructor(private apiService: ApiService) { }
   
-  getAllEmployee(): Observable<Employee[]> {
+  getAllEmployees(): Observable<Employee[]> {
 
     return this.apiService.getAll('Employee/All');
   }
@@ -18,6 +18,15 @@ export class EmployeeService {
   getEmployee(id:number): Observable<Employee> {
    
     return this.apiService.getOne('Employee',id);
+  }
+  createEmployee(resource: any): Observable<Employee> {
+    return this.apiService.create('Employee/add', resource);
+  }
+  updateEmployee(resource: any): Observable<Employee> {
+    return this.apiService.update('Employee/update?id=', resource);
+  }
+  deleteEmployee(resource: any): Observable<Employee> {
+    return this.apiService.delete('Employee/delete?id=' + resource);
   }
 
 }

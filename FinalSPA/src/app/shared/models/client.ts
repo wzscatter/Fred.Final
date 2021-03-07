@@ -5,5 +5,6 @@ export interface Client{
     address:string;
     phone:string;
     addedOn:string;
-    clicked:boolean;
+    addedBy:string;
+
 }

@@ -7,20 +7,19 @@ import { Employee} from '../../../shared/models/employee';
   styleUrls: ['./employee-card.component.css']
 })
 export class EmployeeCardComponent implements OnInit {
-  // this property will be available to view so that it can use to display data
-  // this property will be available to view so that it can use to display data
+
+
   @Input()employees!: Employee[];
   constructor(private employeeService: EmployeeService) { }
   ngOnChanges() {
     console.log('inside ngOnChanges method');
   }
-  // this were we call our API to get the data
+
   ngOnInit() {
     console.log('inside ngOnInit method');
-    this.employeeService.getAllEmployee().subscribe(
+    this.employeeService.getAllEmployees().subscribe(
       g => {
         this.employees = g;
-        console.log('employees')
       }
     )
   }

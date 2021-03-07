@@ -11,6 +11,7 @@ namespace Final.Core.Entities
         public string Email { get; set; }
         public string Phones { get; set; }
         public string Address { get; set; }
+        public int AddedBy { get; set; }
         public DateTime? AddedOn { get; set; }
         public ICollection<Interaction> Interactions { get; set; }
         

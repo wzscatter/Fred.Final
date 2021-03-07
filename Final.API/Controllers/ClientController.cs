@@ -46,25 +46,6 @@ namespace Final.API.Controllers
             return Ok(registeredClient);
 
         }
-        //[HttpPost]
-        //[Route("addclient2")]
-        //public async Task<IActionResult> AddClient(int id)
-        //{
-        //    var client = await _clientService.GetClientById(id);
-        //    var model = new ClientRegisterRequestModel
-        //    {
-        //        Name = client.Name,
-        //        Email = client.Email+"Frd",
-        //        Phone = client.Phones,
-
-        //        Address = client.Address
-
-        //    };
-           
-        //    var registeredClient = await _clientService.AddClient(model);
-        //    return Ok(registeredClient);
-
-        //}
 
         [HttpGet]
         [Route("{id:int}")]
@@ -78,17 +59,6 @@ namespace Final.API.Controllers
             return Ok(client);
         }
 
-        //[HttpGet]
-        //[Route("{email:string}")]
-        //public async Task<IActionResult> GetClientByEmail(string email)
-        //{
-        //    var client = await _clientService.GetClientByEmail(email);
-        //    if (client == null)
-        //    {
-        //        return NotFound("NOT FOUND target Client with Email:" + email);
-        //    }
-        //    return Ok(client);
-        //}
 
         [HttpDelete]
         [Route("delete")]

@@ -34,7 +34,7 @@ namespace Final.API.Controllers
         }
 
         [HttpPost]
-        [Route("addInteraction")]
+        [Route("add")]
         public async Task<IActionResult> AddInteraction(InteractionCreateRequestModel Interaction)
         {
             if (!ModelState.IsValid)

@@ -75,11 +75,60 @@ namespace Final.Infrastructure.Repository
         {
             var local = _dbContext.Set<Client>().Local.FirstOrDefault(c => c.Id == id);
             if (local != null) _dbContext.Entry(local).State = EntityState.Detached;
-            var entity = new Client { Id = id, Name = client.Name, Email = client.Email, Phones = client.Phone, AddedOn = client.AddedOn, Address = client.Address };
+            var entity = new Client { Id = id, Name = client.Name, Email = client.Email, Phones = client.Phone, AddedOn = client.AddedOn, Address = client.Address,AddedBy =client.AddedBy  };
             _dbContext.Entry(entity).State = EntityState.Modified;
             await _dbContext.SaveChangesAsync();
             return entity;
         }
+        //public class EFRepository<T> : IAsyncRepository<T> where T : class
+        //{
+        //protected readonly FinalDbContext _dbContext;
+        //public EFRepository(FinalDbContext dbContext)
+        //{
+        //    _dbContext = dbContext;
+        //}
+        //public virtual async Task<T> AddAsync(T entity)
+        //{
+        //    _dbContext.Set<T>().Add(entity);
+        //    await _dbContext.SaveChangesAsync();
+        //    return entity;
+        //}
+
+        //public virtual async Task DeleteAsync(T entity)
+        //{
+        //    _dbContext.Set<T>().Remove(entity);
+
+        //    await _dbContext.SaveChangesAsync();
+        //}
+
+
+        //public virtual async Task<T> GetByIdAsync(int id)
+        //{
+        //    return await _dbContext.Set<T>().FindAsync(id);
+        //}
+
+
+        //public virtual async Task<IEnumerable<T>> ListAllAsync()
+        //{
+        //    return await _dbContext.Set<T>().ToListAsync();
+        //}
+
+        //public virtual async Task<T> UpdateAsync(T entity)
+
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public virtual T GetEntityById(int id)
+        //{
+        //    return _dbContext.Set<T>().Find(id);
+        //}
+
+        //public async Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> filter)
+        //{
+        //    return await _dbContext.Set<T>().ToListAsync();
+        //}
+        // }
     }
 
 }

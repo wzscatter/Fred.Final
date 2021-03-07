@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../core/service/employee.service';
-import { Employee} from '../shared/models/employee';
+import { Employee } from '../shared/models/employee';
 @Component({
   selector: 'app-Employee',
   templateUrl: './Employee.component.html',
@@ -8,28 +9,30 @@ import { Employee} from '../shared/models/employee';
 })
 export class EmployeeComponent implements OnInit {
   // this property will be available to view so that it can use to display data
-  now : number = Date.now();
-  d : string = new Date(this.now).toISOString();
-  errFlg : boolean = false;
+  now: number = Date.now();
+  d: string = new Date(this.now).toISOString();
+  errFlg: boolean = false;
   tab: number = 1;
-  Employee: Employee = {
+  employee: Employee = {
     id: 0,
     name: '',
-    password: '',
-    designatin:'',
+    password:'',
+    designation:'',
 
-  }
-  route: any;
-  returnUrl: string="";
-  constructor(private employeeService: EmployeeService) { }
+  };
+
+  returnUrl: string = "";
+  employeeUrl:string="";
+  constructor(private employeeService: EmployeeService, private router: Router, 
+    private route: ActivatedRoute) { }
 
   ngOnChanges() {
     console.log('inside ngOnChanges method');
   }
   // this were we call our API to get the data
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.queryParams.subscribe(
-      (params: { returnUrl: string; }) => (this.returnUrl = params.returnUrl || '/')
+      (params) => (this.returnUrl = params.returnUrl || '/')
     );
   }
   ngOnDestroy() {
@@ -37,5 +40,46 @@ export class EmployeeComponent implements OnInit {
   }
 
 
+  submit(buttonType: string) {
+    console.log(this.employee);
+    console.log(buttonType)
+    if (buttonType == 'Create') {
+      this.employeeService.createEmployee(this.employee).subscribe(
+        (response: any) => {
+          if (response) {
+            this.errFlg = false;
+            this.router.navigate([this.returnUrl]);
+          }
+        }
 
+      );
+    } else if (buttonType == 'Update') {
+      this.employeeService.updateEmployee(this.employee).subscribe(
+        (response: any) => {
+          if (response) {
+            this.errFlg = false;
+            this.router.navigate([this.returnUrl]);
+          }
+        }
+
+      )
+    } else if (buttonType == 'Delete') {
+      this.employeeService.deleteEmployee(this.employee.id).subscribe(
+        (response: any) => {
+          this.errFlg = false;
+          this.router.navigate([this.returnUrl]);
+        }
+        
+      );
+    } else {
+      this.employeeService.getEmployee(this.employee.id).subscribe(
+        (response: any) => {
+          // this.errFlg = false;
+          // this.router.navigate(['']);myObservable.subscribe(
+          console.log(response)
+          this.employee = response
+        }
+      );
+    }
+  }
 }

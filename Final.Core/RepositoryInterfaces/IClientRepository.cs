@@ -31,6 +31,27 @@ namespace Final.Core.RepositoryInterfaces
         //show all
         Task<IEnumerable<Client>> ListAllAsync(); // return all records under certain class
         Task<IEnumerable<Client>> ListAsync(Expression<Func<Client, bool>> filter);
+
+        ////we need CRUD
+
+        ////Reading
+        //Task<T> GetByIdAsync(int Id); // return one record under certain class on corresponding Id
+
+
+
+        ////Creating
+        //Task<T> AddAsync(T entity);
+
+        ////Updating
+        //Task<T> UpdateAsync(T entity);
+
+        ////Delete
+        //Task DeleteAsync(T entity);
+
+        //T GetEntityById(int Id);
+        ////show all
+        //Task<IEnumerable<T>> ListAllAsync(); // return all records under certain class
+        //Task<IEnumerable<T>> ListAsync(Expression<Func<T, bool>> filter);
     }
 
 

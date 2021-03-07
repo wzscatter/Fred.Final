@@ -8,18 +8,18 @@ import { Client } from '../../models/client';
 @Component({
   selector: 'app-cli-interaction-card',
   // templateUrl: './cli-interaction-card.component.html',
-  template:`<div>show detials for clientId:{{clientId}}</div>
-        <ol *ngFor="let it of interactions">
+  template:`
+        <ul *ngIf="interactions.length===0">
+          <h5>Sorry, we didn't find any interaction related with this client</h5>
+        </ul>
+        <ul  *ngFor="let it of interactions">
             <li>ClientID:{{it.clientId}}</li>
             <li>EmloyeeId:{{it.employeeId}}</li>
             <li>Type:{{it.inType}}</li>
             <li>Date:{{it.intDate}}</li>
             <li>Remarks:{{it.remarks}}</li>
-        </ol>
-        
-  
-  
-  `
+            <li>Interaction:{{it.id}}</li>
+        </ul>`
            ,
   styleUrls: ['./cli-interaction-card.component.css']
 })

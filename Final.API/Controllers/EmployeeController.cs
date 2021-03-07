@@ -34,7 +34,7 @@ namespace Final.API.Controllers
         }
 
         [HttpPost]
-        [Route("addEmployee")]
+        [Route("add")]
         public async Task<IActionResult> AddEmployee(EmployeeRegisterRequestModel Employee)
         {
             if (!ModelState.IsValid)

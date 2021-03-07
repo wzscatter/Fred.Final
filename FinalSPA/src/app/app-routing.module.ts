@@ -10,6 +10,7 @@ import { ClientComponent } from './client/client.component';
 import { CliInteractionCardComponent } from './shared/components/cli-interaction-card/cli-interaction-card.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmpInteractionCardComponent } from './shared/components/emp-interaction-card/emp-interaction-card.component';
+import { InteractionComponent } from './interaction/interaction.component';
 
 const routes: Routes = [
   {path: "", component : HomeComponent},
@@ -17,8 +18,9 @@ const routes: Routes = [
   {path:'client/Interactions/:id',component:CliInteractionCardComponent},
   {path: 'employee', component: EmployeeComponent},
   {path:'employee/Interactions/:id',component:EmpInteractionCardComponent},
+  {path: 'interaction', component: InteractionComponent},
   {path: "**", component: NotFoundComponent}
-  
+ 
 ];
 
 @NgModule({

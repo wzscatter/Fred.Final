@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Final.Core\Final.Core.csproj" />
-    <ProjectReference Include="..\Final.Infrastructure\Final.Infrastructure.csproj" />
+    <ProjectReference Include="..\Final.Core\Fred.Final.Core.csproj" />
+    <ProjectReference Include="..\Final.Infrastructure\Fred.Final.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

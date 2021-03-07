@@ -68,7 +68,6 @@ namespace Final.API
                 builder.WithOrigins(Configuration.GetValue<string>("clientSPAUrl")).AllowAnyHeader()
                     .AllowAnyMethod().AllowCredentials();
             });
-
             app.UseHttpsRedirection();
 
             app.UseRouting();

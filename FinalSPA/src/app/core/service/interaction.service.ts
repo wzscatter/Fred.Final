@@ -25,6 +25,6 @@ export class InteractionService {
     return this.apiService.update('Interaction/Update', resource);
   }
   deleteInteraction(resource: any) {
-    return this.apiService.delete('Interaction/Delete/' + resource);
+    return this.apiService.delete('Interaction/delete?id=' + resource);
   }
 }

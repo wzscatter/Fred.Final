@@ -6,48 +6,66 @@
     <div class="row">
         <div class="col">
           <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Actions</button>
+            <button class="btn btn-dark" id="dropdownBasic3" ngbDropdownToggle>Actions</button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
               <button ngbDropdownItem (click)="tab=1">Create</button>
               <button ngbDropdownItem (click)="tab=2">Update</button>
               <button ngbDropdownItem (click)="tab=3">Delete</button>
+              <button ngbDropdownItem (click)="tab=4">Search</button>
             </div>
           </div>
         </div>
     </div>
-    <br>
+    
     <form #loginForm="ngForm">
         <div class="form-group">
             <div class="form-group" *ngIf="tab!=1">
                 <label for="name">Id</label>
                 <input type="name" class="form-control" id="ID" name="ID" [(ngModel)]="client.id" />
             </div>
-            <div class="form-group" *ngIf="tab!=3">
+            <div class="form-group" *ngIf="tab!=3&&tab!=4">
                 <label for="lblEmail">Email address</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
                     [(ngModel)]="client.email" />
             </div>
-            <div class="form-group" *ngIf="tab!=3">
+            <div class="form-group" *ngIf="tab!=3&&tab!=4">
                 <label for="name">Name</label>
                 <input type="name" class="form-control" id="name" name="name" [(ngModel)]="client.name" />
             </div>
-            <div class="form-group" *ngIf="tab!=3">
-                <label for="phone">Phone</label>
-                <input type="tel" OnlyNumber="true" class="form-control" id="phone" name="phone"
+            <div class="form-group" *ngIf="tab!=3&&tab!=4">
+                <label for="phones">Phones</label>
+                <input type="tel" OnlyNumber="true" class="form-control" id="phones" name="phones"
                     [(ngModel)]="client.phone" />
             </div>
-            <div class="form-group" *ngIf="tab!=3">
+            <div class="form-group" *ngIf="tab!=3&&tab!=4">
                 <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" name="address" [(ngModel)]="client.address" />
             </div>
-            <div class="form-group" *ngIf="tab!=3">
+            <div class="form-group" *ngIf="tab!=3&&tab!=4">
                 <label for="addedOn">DateTime</label>
-                <input type="text" class="form-control" id="addedOn" name="addedOn" [(ngModel)]="client.addedOn" />
+                <input type="datetime" class="form-control" id="addedOn" name="addedOn" [(ngModel)]="client.addedOn" />
+            </div>
+            <div class="form-group" *ngIf="tab!=3&&tab!=4">
+                <label for="addedOn">AddedBy</label>
+                <input type="number" class="form-control" id="addedBy" name="addedBy" [(ngModel)]="client.addedBy" />
             </div>
         </div>
+
         <input type="submit" class="btn btn-info" value="Create" name="btn1" *ngIf="tab==1" (click)="submit('Create')" />
         <input type="submit" class="btn btn-primary" value="Update" name="btn2" *ngIf="tab==2" (click)="submit('Update')" />
         <input type="submit" class="btn btn-danger" value="Delete" name="btn3" *ngIf="tab==3" (click)="submit('Delete')" />
+        <input type="submit" class="btn btn-danger" value="Search" name="btn4" *ngIf="tab==4" (click)="submit('Search')" />
+
     </form>
-    
+
+</div>
+<div>
+    <ng-container *ngIf="tab==4" >
+        <div>Client Name: {{client.name}}</div>
+        <div>Client Email: {{client.email}}</div>
+        <div>Client Phones:{{client.phone}}</div>
+        <div>Client addedOn: {{client.addedOn}}</div>
+        <div>Clietn address: {{client.address}}</div>
+        <div>Client addedBy: {{client.addedBy}}</div>
+    </ng-container>
 </div>

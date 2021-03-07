@@ -8,14 +8,18 @@ import { Employee } from '../../models/employee';
 @Component({
   selector: 'app-emp-interaction-card',
   // templateUrl: './emp-interaction-card.component.html',
-  template:`<div>show detials for employeeId:{{employeeId}}</div>
-        <ol *ngFor="let it of interactions">
+  template:`
+        <ul *ngIf="interactions.length===0">
+          <h5>Sorry, we didn't find any interaction related with this employee</h5>
+        </ul>
+        <ul *ngFor="let it of interactions">
             <li>ClientID:{{it.clientId}}</li>
             <li>EmloyeeId:{{it.employeeId}}</li>
             <li>Type:{{it.inType}}</li>
             <li>Date:{{it.intDate}}</li>
             <li>Remarks:{{it.remarks}}</li>
-        </ol>`,
+            <li>Interaction: {{it.id}}</li>
+        </ul>`,
   styleUrls: ['./emp-interaction-card.component.css']
 })
 export class EmpInteractionCardComponent implements OnInit,OnDestroy {

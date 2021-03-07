@@ -7,16 +7,16 @@ import { Client} from 'src/app/shared/models/client';
   styleUrls: ['./client-card.component.css']
 })
 export class ClientCardComponent implements OnInit {
-  // this property will be available to view so that it can use to display data
-  // this property will be available to view so that it can use to display data
+  
+
   @Input()clients!: Client[];
   constructor(private clientService: ClientService) { }
   ngOnChanges() {
-    console.log('inside ngOnChanges method');
+    console.log('inside client-card ngOnChanges method');
   }
-  // this were we call our API to get the data
+  
   ngOnInit() {
-    console.log('inside ngOnInit method');
+    console.log('inside client-card ngOnInit method');
     this.clientService.getAllClients().subscribe(
       g => {
         this.clients = g;

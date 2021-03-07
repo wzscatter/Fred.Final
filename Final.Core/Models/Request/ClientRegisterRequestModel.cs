@@ -7,6 +7,7 @@ namespace Final.Core.Models.Request
     public class ClientRegisterRequestModel
     {
         [Required(ErrorMessage = "Phone cannot be empty")]
+        [StringLength(30)]
         [Phone]
         public string Phone { get; set; }
 
@@ -26,5 +27,9 @@ namespace Final.Core.Models.Request
 
         [StringLength(100)]
         public string Address { get; set; }
+
+
+        [Required]
+        public int AddedBy { get; set; }
     }
 }
