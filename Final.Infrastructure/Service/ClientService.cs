@@ -68,9 +68,9 @@ namespace Final.Infrastructure.Service
             return _clientRepository.ListAllAsync();
         }
 
-        public async Task UpdateClient(int id,ClientRegisterRequestModel client)
+        public async Task<Client> UpdateClient(int id,ClientRegisterRequestModel client)
         {
-            await _clientRepository.UpdateClient(id,client);
+            return await _clientRepository.UpdateClient(id,client);
 
         }
 

@@ -12,11 +12,14 @@ export class InteractionService {
   getAllInteractions(): Observable<Interaction[]> {
     return this.apiService.getAll('Interaction/All');
   }
-  getByClientId(id:number): Observable<Interaction[]> {
-    return this.apiService.getAll('Interaction/Client', id);
+  getInteraction(id:number): Observable<Interaction> {
+    return this.apiService.getOne('Interaction', id);
   }
   getByEmployeeId(id:number): Observable<Interaction[]> {
     return this.apiService.getAll('Interaction/Employee', id);
+  }
+  getByClientId(id:number): Observable<Interaction[]> {
+    return this.apiService.getAll('Interaction/Client', id);
   }
   createInteraction(resource: any): Observable<boolean> {
     return this.apiService.create('Interaction/Add', resource);

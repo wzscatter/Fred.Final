@@ -73,8 +73,8 @@ export class InteractionComponent implements OnInit {
         }
         
       );
-    } else  if (buttonType == 'SearchByClientId'){
-      this.interactionService.getByClientId(this.interaction.clientId).subscribe(
+    } else  if (buttonType == 'Search'){
+      this.interactionService.getInteraction(this.interaction.id).subscribe(
         (response: any) => { 
           // this.errFlg = false;
           // this.router.navigate(['']);myObservable.subscribe(
@@ -82,15 +82,17 @@ export class InteractionComponent implements OnInit {
           this.interaction = response
         }
       );
-    }else {
-      this.interactionService.getByEmployeeId(this.interaction.employeeId).subscribe(
-        (response: any) => {
-          // this.errFlg = false;
-          // this.router.navigate(['']);myObservable.subscribe(
-          console.log(response)
-          this.interaction = response
-        }
-      );
-    }
+    }     
+    // else {
+    //   this.interactionService.getByEmployeeId(this.interaction.employeeId).subscribe(
+    //     (response: any) => {
+
+    //       // this.errFlg = false;
+    //       // this.router.navigate(['']);myObservable.subscribe(
+    //       console.log(response)
+    //       this.interaction = response
+    //     }
+    //   );
+    // }
   }
 }

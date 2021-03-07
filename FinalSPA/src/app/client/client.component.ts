@@ -1,4 +1,5 @@
 
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from '../core/service/client.service';
@@ -11,8 +12,7 @@ import { Client } from '../shared/models/client';
 })
 export class ClientComponent implements OnInit {
   // this property will be available to view so that it can use to display data
-  now: number = Date.now();
-  d: string = new Date(this.now).toISOString();
+  errInfo!:string;
   errFlg: boolean = false;
   tab: number = 1;
   client: Client = {
@@ -50,7 +50,8 @@ export class ClientComponent implements OnInit {
 
   submit(buttonType: string) {
     console.log(this.client);
-    console.log(buttonType)
+    console.log(buttonType);
+
     if (buttonType == 'Create') {
       this.clientService.createClient(this.client).subscribe(
         (response:any) => {
@@ -67,7 +68,14 @@ export class ClientComponent implements OnInit {
           if (response) {
             this.errFlg = false;
             this.router.navigate([this.returnUrl]);
+          } 
+        },(err: any) => {
+          this.errInfo= err.message;
+          this.errFlg = true;
+          if (err.status == 500) {
+            this.errInfo = "User Not Found";
           }
+          console.log(err);
         }
 
       )
@@ -80,14 +88,36 @@ export class ClientComponent implements OnInit {
         
       );
     } else {
+      // this.clean();
+
       this.clientService.getClient(this.client.id).subscribe(
         (response: any) => {
           // this.errFlg = false;
           // this.router.navigate(['']);myObservable.subscribe(
           console.log(response)
           this.client = response
+          console.log(this.client)
+          
+        },        (err: any) => {
+          this.errInfo = err.message;
+          this.errFlg = true;
+          if (err.status == 404) {
+            this.errInfo = "User Not Found";
+          }
+          console.log(err);
         }
+      
       );
+      
     }
-  }
+    
+  };
+  // clean(){
+  //   this.client.id=0,
+  //   this.client.name = '',
+  //   this.client.email = '',
+  //   this.client.addedBy = '',
+  //   this.client.addedOn = '',
+  //   this.client.address = ''
+  // }
 }

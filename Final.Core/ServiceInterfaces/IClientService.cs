@@ -11,7 +11,7 @@ namespace Final.Core.ServiceInterfaces
     public interface IClientService
     {
         Task<Client> GetClientById(int id);
-        Task UpdateClient(int id,ClientRegisterRequestModel client);
+        Task<Client> UpdateClient(int id,ClientRegisterRequestModel client);
         Task  DeleteClientById(int id);
         Task<bool> AddClient(ClientRegisterRequestModel client);
         Task<IEnumerable<Client>> ListAll();

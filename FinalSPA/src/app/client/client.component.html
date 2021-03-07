@@ -60,12 +60,17 @@
 
 </div>
 <div>
+
+
     <ng-container *ngIf="tab==4" >
         <div>Client Name: {{client.name}}</div>
         <div>Client Email: {{client.email}}</div>
         <div>Client Phones:{{client.phone}}</div>
         <div>Client addedOn: {{client.addedOn}}</div>
-        <div>Clietn address: {{client.address}}</div>
+        <div>Client address: {{client.address}}</div>
         <div>Client addedBy: {{client.addedBy}}</div>
     </ng-container>
+    <!-- <ng-container *ngIf="tab==4&&client.email==='' " >
+        <h5>The client doesn't exist with id = {{client.id}}</h5>
+     </ng-container> -->
 </div>

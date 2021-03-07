@@ -11,8 +11,8 @@
               <button ngbDropdownItem (click)="tab=1">Create</button>
               <button ngbDropdownItem (click)="tab=2">Update</button>
               <button ngbDropdownItem (click)="tab=3">Delete</button>
-              <button ngbDropdownItem (click)="tab=4">SearchByClientId</button>
-              <button ngbDropdownItem (click)="tab=5">SearchByEmployeeId</button>
+              <button ngbDropdownItem (click)="tab=4">Search</button>
+              <!-- <button ngbDropdownItem (click)="tab=5">SearchByEmployeeId</button> -->
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
                 <label for="address">IntDate</label>
                 <input type="text" class="form-control" id="designation" name="designation" [(ngModel)]="interaction.intDate" />
             </div>
-            <div class="form-group" *ngIf="tab!=3&&tab!=5">
+            <div class="form-group" *ngIf="tab!=3&&tab!=4">
                 <label for="address">Remarks</label>
                 <input type="text" class="form-control" id="designation" name="designation" [(ngModel)]="interaction.remarks" />
             </div>
@@ -59,11 +59,11 @@
 </div>
 <div>
     <ng-container *ngIf="tab==4" >
-        <div>{{interaction.id}}</div>
-        <div>{{interaction.clientId}}</div>
-        <div>{{interaction.employeeId}}</div>
-        <div>{{interaction.intype}}</div>
-        <div>{{interaction.intDate}}</div>
+        <div>InteractionId: {{interaction.id}}</div>
+        <div>ClientId: {{interaction.clientId}}</div>
+        <div>EmployeeId: {{interaction.employeeId}}</div>
+        <div>InteractionType: {{interaction.intype}}</div>
+        <div>InteractionDate: {{interaction.intDate}}</div>
 
     </ng-container>
 </div>
