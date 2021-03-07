@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let client of clients ">
+        <a href="#"
+        [routerLink]="['/client/Interactions/',client.id]">
+        {{client.name}}</a>
+       
+    </li>
+</ul>
