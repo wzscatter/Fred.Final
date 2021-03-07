@@ -1,0 +1,45 @@
+ use Final
+insert into Client values('Fred','123@qq.com','134123','erath','1995-09-11');
+insert into Client values('Fred2','1232@gmail.com','1341232','erath2','1995-09-12');
+insert into Client values('Fred3','1233@gmail.com','1341233','erath3','1995-09-13');
+insert into Client values('Fred4','1234@gmail.com','1341234','erath4','1995-09-14');
+insert into Client values('Fred5','1235@gmail.com','1341235','erath5','1995-09-15');
+insert into Client values('Fred6','1236@gmail.com','1341236','erath6','1995-09-16');
+insert into Client values('Fred7','1237@gmail.com','1341237','erath7','1995-09-17');
+insert into Client values('Fred8','1238@gmail.com','1341238','erath8','1995-09-18');
+insert into Client values('Fred9','1239@gmail.com','1341239','erath9','1995-09-19');
+insert into Client values('Fred10','12310@gmail.com','13412310','erath10','1995-09-20');
+insert into Employee values('Lred1','ABC123!@#','HR');
+insert into Employee values('Lred2','ABC123!@#','IT');
+insert into Employee values('Lred3','ABC123!@#','PR');
+insert into Employee values('Lred4','ABC123!@#','IT');
+insert into Employee values('Lred5','ABC123!@#','IT');
+insert into Employee values('Lred6','ABC123!@#','GS');
+insert into Employee values('Lred7','ABC123!@#','GS');
+insert into Employee values('Lred8','ABC123!@#','IT');
+insert into Employee values('Lred9','ABC123!@#','LO');
+insert into Employee values('Lred10','ABC123!@#','HR');
+
+select * from Interaction;
+insert into Interaction values(1,'T','2010-12-12','PHONECALL',2);
+insert into Interaction values(2,'S','2010-12-13','YOU WILL SUCCEEDL',2);
+insert into Interaction values(3,'T','2010-12-12','PHONECALL',2);
+insert into Interaction values(4,'T','2010-12-12','PHONECALL',2);
+insert into Interaction values(1,'S','2010-12-13','YOU WILL SUCCEED',3);
+insert into Interaction values(1,'T','2010-12-13','PHONECALL',6);
+insert into Interaction values(4,'W','2010-12-14','YOU WILL SUCCEED',9);
+insert into Interaction values(3,'T','2010-12-12','PHONECALL',1);
+insert into Interaction values(4,'I','2010-12-14','PHONECALL',7);
+insert into Interaction values(10,'S','2010-12-15','PHONECALL',8);
+insert into Interaction values(8,'T','2010-12-16','PHONECALL',3);
+insert into Interaction values(4,'I','2010-12-12','YOU WILL SUCCEED',5);
+insert into Interaction values(5,'T','2010-12-11','PHONECALL',4);
+insert into Interaction values(5,'T','2010-12-14','PHONECALL',5);
+insert into Interaction values(6,'T','2010-12-15','YOU WILL SUCCEED',6);
+insert into Interaction values(6,'T','2010-12-16','PHONECALL',9);
+insert into Interaction values(6,'W','2010-12-17','PHONECALL',10);
+insert into Interaction values(9,'T','2010-12-12','YOU WILL SUCCEED',2);
+insert into Interaction values(9,'T','2010-12-11','PHONECALL',1);
+insert into Interaction values(10,'T','2010-12-10','PHONECALL',10);
+
+insert into Interaction values(1,'W','2010-12-11','YOU WILL SUCCEED',2);
